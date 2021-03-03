@@ -7,7 +7,8 @@ import { StatisticsComponent } from './Single responsibility principle/before/st
 import { ReportComponent } from './Single responsibility principle/after/report/report.component';
 import { ButtonComponent } from './Open-Closed-Principle/before/button/button.component';
 import { ButtonAfterComponent } from './Open-Closed-Principle/after/button-after/button-after.component';
-
+import { PrintService } from './Dependency-Inversion/after/print.service';
+import { SalesReportComponent } from './Dependency-Inversion/after/slaes-report/sales-report.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,16 @@ import { ButtonAfterComponent } from './Open-Closed-Principle/after/button-after
     StatisticsComponent,
     ReportComponent,
     ButtonComponent,
-    ButtonAfterComponent
+    ButtonAfterComponent,
+    SalesReportComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'PrintReport' , useClass: PrintService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
